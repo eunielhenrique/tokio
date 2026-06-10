@@ -9,7 +9,7 @@
 //   [ACAO:LOCACAO]  → envia para o CRM (locação) e marca aguardando_crm
 
 import { memAppend, memGet, updateLead } from "./db.ts";
-import { runAgent } from "./openai.ts";
+import { runAgent } from "./claude.ts";
 import { sendText } from "./wa.ts";
 import { enviarCRM } from "./crm.ts";
 import { rodarAgendador } from "./agendador.ts";

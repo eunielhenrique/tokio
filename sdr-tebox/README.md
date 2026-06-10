@@ -3,7 +3,7 @@
 Substituto completo do workflow n8n **"SDR Digital - Tebox Diversoes v11"**
 (id `w1WurrA9lz4653KG`), implementado como uma **Supabase Edge Function**
 (`sdr-webhook`). Todo o funil de qualificação via WhatsApp, os dois agentes de
-IA e as integrações (Supabase, OpenAI, Google Calendar/Meet, Gmail, CRM ROI
+IA e as integrações (Supabase, Claude (Anthropic), Google Calendar/Meet, Gmail, CRM ROI
 Chat) foram replicados nó a nó.
 
 > Esta pasta é autocontida e **não tem relação com a landing page** deste
@@ -18,7 +18,7 @@ Chat) foram replicados nó a nó.
    - faixa ≥ R$ 60 mil **ou** objetivo "expandir" → convite para **APN**;
    - senão → **baixo potencial** → CRM;
    - locação → CRM.
-3. **Agente IA de dúvidas** (OpenAI) para mensagens livres, com memória de 40
+3. **Agente IA de dúvidas** (Claude) para mensagens livres, com memória de 40
    mensagens e classificação `[ACAO:APN|VENDEDOR|LOCACAO]`.
 4. **Agente IA de agendamento** da APN: consulta a agenda (Google Calendar),
    propõe 3 horários dentro da grade do especialista, confirma, coleta e-mail,
@@ -49,7 +49,7 @@ O fluxo original tinha defeitos que foram corrigidos aqui:
 | `supabase/functions/sdr-webhook/duvidas.ts` | IA - Responde Dúvidas, Pos IA Duvidas (+ Switch Acao IA reconstruído) |
 | `supabase/functions/sdr-webhook/agendador.ts` | Prep Agendador, IA - Responde Dúvidas1, Pos Agendador, Salvar Caminho Agendamento, Enviar Aguarde |
 | `supabase/functions/sdr-webhook/google.ts` | Tools Eventos, Verifica, Marcar, Cancelar1, Gmail |
-| `supabase/functions/sdr-webhook/openai.ts` | OpenAI Chat Model(1) + loop do Agent |
+| `supabase/functions/sdr-webhook/claude.ts` | OpenAI Chat Model(1) + loop do Agent (agora via API do Claude) |
 | `supabase/functions/sdr-webhook/wa.ts` | Nós HTTP de envio WhatsApp |
 | `supabase/functions/sdr-webhook/db.ts` | Nós Supabase + Postgres Chat Memory |
 | `supabase/functions/sdr-webhook/crm.ts` | Nós de CRM (ROI Chat) |

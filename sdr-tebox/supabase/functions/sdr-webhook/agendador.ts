@@ -4,7 +4,7 @@
 // "Prep/HTTP Enviar Resposta IA" do fluxo n8n.
 
 import { memAppend, memGet, updateLead } from "./db.ts";
-import { runAgent, type ToolDef } from "./openai.ts";
+import { runAgent, type ToolDef } from "./claude.ts";
 import { sendButtons, sendText, type Button } from "./wa.ts";
 import { cancelarEvento, criarEvento, enviarEmail, listarEventos } from "./google.ts";
 import type { Estado } from "./funil.ts";
@@ -261,17 +261,6 @@ function tools(estado: Estado): ToolDef[] {
         });
         return "E-mail enviado.";
       },
-    },
-    {
-      name: "think",
-      description:
-        "Use para raciocinar passo a passo (cálculo de dias da semana, conferência da grade de horários) antes de responder. Não tem efeito externo.",
-      parameters: {
-        type: "object",
-        properties: { thought: { type: "string" } },
-        required: ["thought"],
-      },
-      run: (args) => Promise.resolve(String(args.thought ?? "ok")),
     },
   ];
 }

@@ -7,7 +7,7 @@ let leadRow: Record<string, unknown> | null = null;
   env: { get: (k: string) => ({
     SUPABASE_URL: "http://sb", SUPABASE_SERVICE_ROLE_KEY: "key",
     WHATSAPP_TOKEN: "tok", WHATSAPP_PHONE_NUMBER_ID: "123",
-    OPENAI_API_KEY: "sk", META_VERIFY_TOKEN: "vt",
+    ANTHROPIC_API_KEY: "sk", META_VERIFY_TOKEN: "vt",
     GOOGLE_CLIENT_ID: "g", GOOGLE_CLIENT_SECRET: "g", GOOGLE_REFRESH_TOKEN: "g",
   } as Record<string,string>)[k] },
   serve: (_h: unknown) => {},
