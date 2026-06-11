@@ -11,8 +11,52 @@ const machines = [
   { id: 5, src: "/images/blaaze.jpg",           alt: "Blaaze" }
 ];
 
+function MachinePhoto({
+  machine,
+  failed,
+  onFail,
+  priority,
+  sizes
+}: {
+  machine: (typeof machines)[number];
+  failed: boolean;
+  onFail: () => void;
+  priority?: boolean;
+  sizes?: string;
+}) {
+  if (failed) {
+    return (
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 text-center">
+        <span className="text-red-600 text-4xl">🕹️</span>
+        <span className="text-gray-900 font-extrabold uppercase tracking-wide leading-tight">
+          {machine.alt}
+        </span>
+        <span className="h-1 w-10 rounded-full bg-red-600" />
+        <span className="text-gray-400 text-xs uppercase tracking-widest">
+          Foto em breve
+        </span>
+      </div>
+    );
+  }
+  return (
+    <Image
+      src={machine.src}
+      alt={machine.alt}
+      fill
+      className="object-contain p-4"
+      priority={priority}
+      sizes={sizes}
+      onError={onFail}
+    />
+  );
+}
+
 export default function MachineCarousel() {
   const [current, setCurrent] = useState(0);
+  const [failedIds, setFailedIds] = useState<number[]>([]);
+
+  const markFailed = (id: number) =>
+    setFailedIds((ids) => (ids.includes(id) ? ids : [...ids, id]));
 
   const prev = () => setCurrent((c) => (c - 1 + machines.length) % machines.length);
   const next = () => setCurrent((c) => (c + 1) % machines.length);
@@ -23,11 +67,10 @@ export default function MachineCarousel() {
       {/* Mobile: 1 card at a time */}
       <div className="md:hidden relative px-8">
         <div className="relative h-[65vh] bg-white rounded-2xl overflow-hidden">
-          <Image
-            src={machines[current].src}
-            alt={machines[current].alt}
-            fill
-            className="object-contain p-4"
+          <MachinePhoto
+            machine={machines[current]}
+            failed={failedIds.includes(machines[current].id)}
+            onFail={() => markFailed(machines[current].id)}
             priority
           />
         </div>
@@ -57,11 +100,10 @@ export default function MachineCarousel() {
               key={m.id}
               className="flex-1 relative h-80 lg:h-96 bg-white rounded-2xl overflow-hidden"
             >
-              <Image
-                src={m.src}
-                alt={m.alt}
-                fill
-                className="object-contain p-3"
+              <MachinePhoto
+                machine={m}
+                failed={failedIds.includes(m.id)}
+                onFail={() => markFailed(m.id)}
                 sizes="(min-width: 1280px) 260px, 20vw"
               />
             </div>
