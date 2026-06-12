@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b; --bg2:#0e0e12; --surf:#15151a; --surf2:#1c1c23;
+    --bd:rgba(255,255,255,0.08); --bd2:rgba(255,255,255,0.16);
+    --tx:#f4f3f1; --mut:#9a99a3; --mut2:#6c6b75;
+    --red:#ff2e4c; --redsoft:rgba(255,46,76,0.12);
+    --g:linear-gradient(90deg,#ff2d9b,#7b5cff,#22d3ee);
+    --maxw:1240px; --disp:'Space Grotesk',sans-serif; --body:'Archivo',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--body);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  input,select,textarea,button{font-family:inherit;}
+  ::placeholder{color:var(--mut2);}
+  @keyframes mq{to{transform:translateX(-50%);}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);}}
+  @keyframes floaty2{0%,100%{transform:translateY(0);}50%{transform:translateY(14px);}}
+  @keyframes glow{0%,100%{opacity:.55;}50%{opacity:.95;}}
+</style>
+</helmet>
+
+<div style="background:var(--bg);overflow-x:hidden;">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:60;background:rgba(10,10,11,0.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);">
+    <div style="max-width:var(--maxw);margin:0 auto;padding:16px clamp(20px,5vw,48px);display:flex;align-items:center;gap:24px;">
+      <a href="#inicio" style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="images/logo-cut.png" alt="Tokyo Machine" style="height:54px;width:auto;display:block;" />
+      </a>
+      <div style="flex:1;display:flex;justify-content:center;gap:26px;flex-wrap:wrap;font-size:14.5px;font-weight:500;color:var(--mut);">
+        <a href="#sobre" style="transition:color .2s;" style-hover="color:var(--tx)">Sobre</a>
+        <a href="#catalogo" style="transition:color .2s;" style-hover="color:var(--tx)">Catálogo</a>
+        <a href="#como-funciona" style="transition:color .2s;" style-hover="color:var(--tx)">Como Funciona</a>
+        <a href="#resultados" style="transition:color .2s;" style-hover="color:var(--tx)">Resultados</a>
+        <a href="#depoimentos" style="transition:color .2s;" style-hover="color:var(--tx)">Depoimentos</a>
+        <a href="#faq" style="transition:color .2s;" style-hover="color:var(--tx)">FAQ</a>
+      </div>
+      <a href="#contato" style="flex-shrink:0;background:var(--red);color:#fff;font-weight:700;font-size:14px;padding:11px 20px;border-radius:11px;box-shadow:0 6px 22px rgba(255,46,76,.32);transition:transform .2s;" style-hover="transform:translateY(-2px)">Solicitar Orçamento</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" style="position:relative;padding:clamp(56px,8vw,96px) clamp(20px,5vw,48px) clamp(40px,5vw,64px);">
+    <div style="position:absolute;top:-80px;right:-60px;width:60vw;max-width:760px;height:760px;background:radial-gradient(circle,rgba(123,92,255,.16),transparent 60%);pointer-events:none;"></div>
+    <div style="max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,4vw,60px);align-items:center;position:relative;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:var(--redsoft);border:1px solid rgba(255,46,76,.3);padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#ff7088;">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);"></span>
+          N°1 EM MÁQUINAS DE ENTRETENIMENTO NO BRASIL
+        </div>
+        <h1 style="font-family:var(--disp);font-weight:700;font-size:clamp(38px,5.4vw,68px);line-height:1.02;letter-spacing:-.02em;margin:24px 0 0;">Transforme seu espaço em uma <span style="background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;">máquina de lucro</span></h1>
+        <p style="font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:var(--mut);max-width:540px;margin:22px 0 0;">Máquinas de garra, vending e entretenimento premium da Tokyo Machine. Aumento real de fluxo, engajamento e receita passiva no seu negócio.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;">
+          <a href="#contato" style="background:var(--red);color:#fff;font-weight:700;font-size:16px;padding:15px 26px;border-radius:13px;box-shadow:0 10px 30px rgba(255,46,76,.35);transition:transform .2s;" style-hover="transform:translateY(-3px)">Quero uma proposta grátis →</a>
+          <a href="#catalogo" style="border:1px solid var(--bd2);color:var(--tx);font-weight:600;font-size:16px;padding:15px 26px;border-radius:13px;transition:background .2s;" style-hover="background:var(--surf)">Ver Produtos</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,auto);gap:clamp(18px,3vw,44px);margin-top:46px;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:clamp(26px,3vw,40px);line-height:1;">+10<span style="color:var(--mut);font-size:.55em;">mil</span></div>
+            <div style="font-size:12.5px;color:var(--mut2);letter-spacing:.06em;text-transform:uppercase;margin-top:7px;">Máquinas Instaladas</div>
+          </div>
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:clamp(26px,3vw,40px);line-height:1;">9<span style="color:var(--mut);font-size:.5em;"> anos</span></div>
+            <div style="font-size:12.5px;color:var(--mut2);letter-spacing:.06em;text-transform:uppercase;margin-top:7px;">de Experiência</div>
+          </div>
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:clamp(26px,3vw,40px);line-height:1;">98<span style="color:var(--mut);font-size:.55em;">%</span></div>
+            <div style="font-size:12.5px;color:var(--mut2);letter-spacing:.06em;text-transform:uppercase;margin-top:7px;">Satisfação</div>
+          </div>
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:clamp(26px,3vw,40px);line-height:1;">200<span style="color:var(--mut);font-size:.55em;">+</span></div>
+            <div style="font-size:12.5px;color:var(--mut2);letter-spacing:.06em;text-transform:uppercase;margin-top:7px;">Cidades Atendidas</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;min-height:clamp(380px,42vw,560px);display:flex;align-items:center;justify-content:center;">
+        <div style="position:absolute;width:78%;height:78%;border-radius:50%;background:radial-gradient(circle,rgba(255,46,76,.34),transparent 62%);filter:blur(34px);animation:glow 5s ease-in-out infinite;"></div>
+        <img src="images/produto-09.png" alt="Máquina BIG LED" style="position:absolute;left:2%;bottom:6%;height:62%;object-fit:contain;opacity:.62;filter:drop-shadow(0 18px 40px rgba(34,211,238,.25));animation:floaty2 7s ease-in-out infinite;" />
+        <img src="images/produto-01.png" alt="Máquina NEW BLACK" style="position:relative;height:100%;object-fit:contain;filter:drop-shadow(0 24px 50px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(255,45,155,.28));animation:floaty 6s ease-in-out infinite;z-index:2;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE TEXT -->
+  <div style="border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2);overflow:hidden;padding:16px 0;">
+    <div style="display:flex;gap:0;width:max-content;animation:mq 38s linear infinite;font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);">
+      <span style="display:flex;align-items:center;gap:34px;padding-right:34px;">
+        <span>Entretenimento Premium</span><span style="color:var(--red);">◆</span><span>Instalação Completa</span><span style="color:var(--red);">◆</span><span>Premiação Personalizada</span><span style="color:var(--red);">◆</span><span>Máquinas de Garra</span><span style="color:var(--red);">◆</span><span>Vending Machines</span><span style="color:var(--red);">◆</span>
+      </span>
+      <span style="display:flex;align-items:center;gap:34px;padding-right:34px;" aria-hidden="true">
+        <span>Entretenimento Premium</span><span style="color:var(--red);">◆</span><span>Instalação Completa</span><span style="color:var(--red);">◆</span><span>Premiação Personalizada</span><span style="color:var(--red);">◆</span><span>Máquinas de Garra</span><span style="color:var(--red);">◆</span><span>Vending Machines</span><span style="color:var(--red);">◆</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- SCROLL DE IMAGENS -->
+  <section id="scroll" style="padding:clamp(56px,7vw,90px) 0;background:var(--bg);">
+    <div style="max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px);">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+        <div>
+          <div style="display:flex;align-items:center;gap:11px;">
+            <span style="height:2px;width:32px;background:var(--g);"></span>
+            <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Nossas Máquinas</span>
+          </div>
+          <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.4vw,44px);letter-spacing:-.02em;margin:14px 0 0;">Tecnologia que chama atenção</h2>
+        </div>
+        <p style="color:var(--mut);font-size:15px;max-width:340px;margin:0;">Modelos reais com iluminação LED RGB, design moderno e acabamento premium.</p>
+      </div>
+    </div>
+    <div style="overflow:hidden;margin-top:40px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);">
+      <div style="display:flex;gap:22px;width:max-content;animation:mq 55s linear infinite;">
+        <sc-for list="{{ scroll }}" as="s" hint-placeholder-count="9">
+          <div style="width:288px;height:392px;border-radius:20px;overflow:hidden;border:1px solid var(--bd);background:var(--surf);flex-shrink:0;display:flex;flex-direction:column;">
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:26px;background:radial-gradient(circle at 50% 42%,rgba(123,92,255,.15),transparent 66%);min-height:0;">
+              <img src="{{ s.src }}" alt="{{ s.name }}" style="max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.55));" />
+            </div>
+            <div style="padding:15px 20px 18px;border-top:1px solid var(--bd);">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff7088;">{{ s.tag }}</div>
+              <div style="font-family:var(--disp);font-weight:700;font-size:20px;margin-top:3px;color:#fff;">{{ s.name }}</div>
+            </div>
+          </div>
+        </sc-for>
+        <sc-for list="{{ scroll2 }}" as="s" hint-placeholder-count="9">
+          <div style="width:288px;height:392px;border-radius:20px;overflow:hidden;border:1px solid var(--bd);background:var(--surf);flex-shrink:0;display:flex;flex-direction:column;">
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:26px;background:radial-gradient(circle at 50% 42%,rgba(123,92,255,.15),transparent 66%);min-height:0;">
+              <img src="{{ s.src }}" alt="{{ s.name }}" style="max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.55));" />
+            </div>
+            <div style="padding:15px 20px 18px;border-top:1px solid var(--bd);">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff7088;">{{ s.tag }}</div>
+              <div style="font-family:var(--disp);font-weight:700;font-size:20px;margin-top:3px;color:#fff;">{{ s.name }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="resultados" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);">
+    <div style="max-width:var(--maxw);margin:0 auto;text-align:center;">
+      <div style="display:flex;align-items:center;gap:11px;justify-content:center;">
+        <span style="height:2px;width:32px;background:var(--g);"></span>
+        <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Resultados Reais</span>
+        <span style="height:2px;width:32px;background:var(--g);"></span>
+      </div>
+      <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;margin:16px auto 0;max-width:760px;">Números que comprovam nossa força</h2>
+      <p style="color:var(--mut);font-size:17px;line-height:1.6;max-width:620px;margin:18px auto 0;">Parceiros que confiam na Tokyo Machine registram crescimento médio de 35% no faturamento do espaço.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:50px;">
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:18px;padding:34px 24px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:clamp(34px,4vw,50px);background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">+10mil</div>
+          <div style="color:var(--mut);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:12px;">Máquinas Ativas</div>
+        </div>
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:18px;padding:34px 24px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:clamp(34px,4vw,50px);background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">200+</div>
+          <div style="color:var(--mut);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:12px;">Cidades</div>
+        </div>
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:18px;padding:34px 24px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:clamp(34px,4vw,50px);background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">+35%</div>
+          <div style="color:var(--mut);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:12px;">Aumento de Faturamento</div>
+        </div>
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:18px;padding:34px 24px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:clamp(34px,4vw,50px);background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">9 anos</div>
+          <div style="color:var(--mut);font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-top:12px;">No Mercado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGO -->
+  <section id="catalogo" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg);">
+    <div style="max-width:var(--maxw);margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="display:flex;align-items:center;gap:11px;justify-content:center;">
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+          <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Catálogo Completo</span>
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+        </div>
+        <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;margin:16px 0 0;">Todas as Nossas Máquinas</h2>
+        <p style="color:var(--mut);font-size:16px;margin:16px 0 0;">Diversas Marcas e Modelos · Tecnologia Chinesa · Suporte vitalício</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(264px,1fr));gap:20px;margin-top:50px;">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="9">
+          <div onClick="{{ p.open }}" style="background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:20px;display:flex;flex-direction:column;cursor:pointer;transition:transform .25s,border-color .25s;" style-hover="transform:translateY(-6px);border-color:rgba(255,46,76,.45)">
+            <div style="position:relative;height:230px;border-radius:14px;background:radial-gradient(circle at 50% 38%,rgba(123,92,255,.16),rgba(34,211,238,.04) 58%,transparent 72%);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+              <span style="position:absolute;top:11px;left:11px;font-family:monospace;font-size:10.5px;color:var(--mut);background:rgba(0,0,0,.4);border:1px solid var(--bd);padding:4px 8px;border-radius:6px;">{{ p.model }}</span>
+              <img src="{{ p.img }}" alt="{{ p.name }}" style="max-height:210px;max-width:88%;object-fit:contain;filter:drop-shadow(0 14px 26px rgba(0,0,0,.55));" />
+            </div>
+            <h3 style="font-family:var(--disp);font-weight:700;font-size:20px;margin:18px 0 0;letter-spacing:-.01em;">{{ p.name }}</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px 16px;margin-top:15px;">
+              <div><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Dimensões</div><div style="font-size:13.5px;font-weight:600;margin-top:3px;">{{ p.dim }}</div></div>
+              <div><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Peso</div><div style="font-size:13.5px;font-weight:600;margin-top:3px;">{{ p.peso }}</div></div>
+              <div><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Cores</div><div style="font-size:13.5px;font-weight:600;margin-top:3px;">{{ p.cores }}</div></div>
+              <div><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Energia</div><div style="font-size:13.5px;font-weight:600;margin-top:3px;">110V/220V · 200W</div></div>
+            </div>
+            <div style="flex:1;min-height:18px;"></div>
+            <div style="margin-top:8px;text-align:center;border:1px solid rgba(255,46,76,.4);color:#ff7088;font-weight:600;font-size:14px;padding:12px;border-radius:11px;">Ver detalhes →</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align:center;margin-top:46px;">
+        <a href="#contato" style="display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:16px;padding:15px 30px;border-radius:13px;box-shadow:0 10px 30px rgba(255,46,76,.32);transition:transform .2s;" style-hover="transform:translateY(-3px)">Solicitar Orçamento →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg2);border-top:1px solid var(--bd);">
+    <div style="max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center;">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;">
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+          <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Nossa História</span>
+        </div>
+        <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;margin:16px 0 0;">Quem é a Tokyo Machine?</h2>
+        <p style="font-size:18px;line-height:1.6;color:var(--tx);margin:22px 0 0;">Nascemos da paixão por entretenimento e pela cultura arcade. Hoje somos referência nacional em máquinas de garra premium.</p>
+        <p style="font-size:15.5px;line-height:1.7;color:var(--mut);margin:18px 0 0;">Nosso propósito é claro: levar ao Brasil uma experiência que encanta o público. Máquinas de garra com design sofisticado, tecnologia Chinesa de qualidade e um modelo de negócio que gera resultado de verdade.</p>
+        <p style="font-size:15.5px;line-height:1.7;color:var(--mut);margin:16px 0 0;">Nossa trajetória é marcada por centenas de estabelecimentos transformados — shoppings, restaurantes, academias e parques que descobriram no entretenimento uma nova fonte de receita recorrente e engajamento do público.</p>
+        <p style="font-size:15.5px;line-height:1.7;color:var(--mut);margin:16px 0 0;">Com suporte vitalício, assistência personalizada e um catálogo que evolui constantemente, somos mais do que fornecedores: somos parceiros de negócio.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;">
+          <span style="background:var(--surf);border:1px solid var(--bd);border-radius:100px;padding:9px 16px;font-size:13.5px;font-weight:600;">Qualidade Premium</span>
+          <span style="background:var(--surf);border:1px solid var(--bd);border-radius:100px;padding:9px 16px;font-size:13.5px;font-weight:600;">Suporte Vitalício</span>
+          <span style="background:var(--surf);border:1px solid var(--bd);border-radius:100px;padding:9px 16px;font-size:13.5px;font-weight:600;">ROI Comprovado</span>
+          <span style="background:var(--surf);border:1px solid var(--bd);border-radius:100px;padding:9px 16px;font-size:13.5px;font-weight:600;">Parceria Real</span>
+        </div>
+        <a href="#contato" style="display:inline-block;margin-top:30px;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:12px;box-shadow:0 8px 26px rgba(255,46,76,.3);transition:transform .2s;" style-hover="transform:translateY(-3px)">Falar com um especialista →</a>
+      </div>
+      <div style="background:linear-gradient(160deg,var(--surf),var(--bg));border:1px solid var(--bd);border-radius:24px;padding:38px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,46,76,.22),transparent 65%);"></div>
+        <div style="font-family:var(--disp);font-weight:700;font-size:26px;line-height:1.1;position:relative;">Líder no <span style="background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;">mercado</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 18px;margin-top:30px;position:relative;">
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:32px;line-height:1;">+10mil</div>
+            <div style="font-size:13px;color:var(--mut);margin-top:6px;">Máquinas instaladas</div>
+          </div>
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:32px;line-height:1;">Diversas</div>
+            <div style="font-size:13px;color:var(--mut);margin-top:6px;">Marcas e Modelos</div>
+          </div>
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:32px;line-height:1;">100%</div>
+            <div style="font-size:13px;color:var(--mut);margin-top:6px;">Suporte vitalício</div>
+          </div>
+          <div>
+            <div style="font-family:var(--disp);font-weight:700;font-size:32px;line-height:1;">6–9</div>
+            <div style="font-size:13px;color:var(--mut);margin-top:6px;">Meses de ROI médio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg);">
+    <div style="max-width:var(--maxw);margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="display:flex;align-items:center;gap:11px;justify-content:center;">
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+          <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Processo</span>
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+        </div>
+        <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;margin:16px 0 0;">Como funciona</h2>
+        <p style="color:var(--mut);font-size:17px;max-width:560px;margin:16px auto 0;">Do primeiro contato à máquina funcionando no seu espaço em poucos dias.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:50px;">
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:30px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:42px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">01</div>
+          <h3 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:18px 0 0;">Consultoria Gratuita</h3>
+          <p style="color:var(--mut);font-size:14.5px;line-height:1.6;margin:12px 0 0;">Nossa equipe analisa seu espaço, público-alvo e potencial de retorno para indicar a solução ideal.</p>
+        </div>
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:30px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:42px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">02</div>
+          <h3 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:18px 0 0;">Proposta Personalizada</h3>
+          <p style="color:var(--mut);font-size:14.5px;line-height:1.6;margin:12px 0 0;">Elaboramos uma proposta com modelos, premiações, layout e projeção de ROI personalizada para você.</p>
+        </div>
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:30px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:42px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">03</div>
+          <h3 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:18px 0 0;">Instalação Profissional</h3>
+          <p style="color:var(--mut);font-size:14.5px;line-height:1.6;margin:12px 0 0;">Nossa equipe realiza toda a instalação, configuração e treinamento para operação sem complicações.</p>
+        </div>
+        <div style="background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:30px;">
+          <div style="font-family:var(--disp);font-weight:700;font-size:42px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;">04</div>
+          <h3 style="font-family:var(--disp);font-weight:600;font-size:20px;margin:18px 0 0;">Suporte Contínuo</h3>
+          <p style="color:var(--mut);font-size:14.5px;line-height:1.6;margin:12px 0 0;">Suporte remoto por videochamada, reposição de premiações e manutenção preventiva para maximizar sua receita.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS EM VIDEO -->
+  <section id="depoimentos" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);">
+    <div style="max-width:var(--maxw);margin:0 auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="display:flex;align-items:center;gap:11px;">
+            <span style="height:2px;width:32px;background:var(--g);"></span>
+            <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Depoimentos</span>
+          </div>
+          <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.6vw,46px);letter-spacing:-.02em;margin:14px 0 0;">O que nossos parceiros dizem</h2>
+          <p style="color:var(--mut);font-size:15.5px;margin:14px 0 0;max-width:420px;">Histórias reais de quem transformou o espaço em fonte de receita.</p>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <button onClick="{{ vPrev }}" aria-label="Anterior" style="width:52px;height:52px;border-radius:50%;border:1px solid var(--bd2);background:var(--surf);color:var(--tx);font-size:22px;cursor:pointer;transition:background .2s;" style-hover="background:var(--surf2)">‹</button>
+          <button onClick="{{ vNext }}" aria-label="Próximo" style="width:52px;height:52px;border-radius:50%;border:1px solid var(--bd2);background:var(--red);color:#fff;font-size:22px;cursor:pointer;box-shadow:0 6px 20px rgba(255,46,76,.3);transition:transform .2s;" style-hover="transform:translateY(-2px)">›</button>
+        </div>
+      </div>
+      <div style="overflow:hidden;margin-top:40px;">
+        <div style="display:flex;gap:28px;transition:transform .5s cubic-bezier(.4,0,.2,1);transform:{{ vTransform }};">
+          <sc-for list="{{ videos }}" as="vd" hint-placeholder-count="4">
+            <div style="width:280px;flex-shrink:0;">
+              <sc-if value="{{ vd.isVideo }}" hint-placeholder-val="{{ true }}">
+                <div data-vidwrap="1" style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:1px solid var(--bd);background:#000;">
+                  <video src="{{ vd.src }}" playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;background:#000;display:block;"></video>
+                  <button onClick="{{ playVid }}" data-playov="1" aria-label="Reproduzir vídeo" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border:none;padding:0;background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.5));cursor:pointer;transition:opacity .25s;">
+                    <span style="width:74px;height:74px;border-radius:50%;background:rgba(255,46,76,0.95);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 36px rgba(255,46,76,0.55);">
+                      <span style="width:0;height:0;border-left:23px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px;"></span>
+                    </span>
+                  </button>
+                  <div style="position:absolute;top:12px;left:12px;font-family:monospace;font-size:11px;color:#fff;background:rgba(0,0,0,0.5);padding:4px 9px;border-radius:6px;pointer-events:none;">{{ vd.num }}</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ vd.isAudio }}" hint-placeholder-val="{{ false }}">
+                <div style="position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;border:1px solid var(--bd);background:linear-gradient(160deg,#1a1a20,#0d0d10);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:24px;">
+                  <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,rgba(255,46,76,.16),transparent 62%);"></div>
+                  <div style="position:relative;width:88px;height:88px;border-radius:50%;background:rgba(255,46,76,.95);display:flex;align-items:flex-end;justify-content:center;gap:5px;padding-bottom:27px;box-shadow:0 12px 36px rgba(255,46,76,.5);">
+                    <span style="width:5px;height:16px;background:#fff;border-radius:3px;"></span>
+                    <span style="width:5px;height:30px;background:#fff;border-radius:3px;"></span>
+                    <span style="width:5px;height:22px;background:#fff;border-radius:3px;"></span>
+                    <span style="width:5px;height:34px;background:#fff;border-radius:3px;"></span>
+                    <span style="width:5px;height:18px;background:#fff;border-radius:3px;"></span>
+                  </div>
+                  <div style="position:relative;font-family:monospace;font-size:11px;letter-spacing:.08em;color:var(--mut);">Depoimento em áudio</div>
+                  <audio src="{{ vd.src }}" controls="controls" preload="metadata" style="position:relative;width:100%;"></audio>
+                  <div style="position:absolute;top:12px;left:12px;font-family:monospace;font-size:11px;color:#fff;background:rgba(0,0,0,.5);padding:4px 9px;border-radius:6px;">{{ vd.num }}</div>
+                </div>
+              </sc-if>
+              <div style="padding:16px 4px 0;">
+                <div style="font-family:var(--disp);font-weight:600;font-size:17px;">{{ vd.name }}</div>
+                <div style="color:#ff7088;font-size:13px;font-weight:600;margin-top:3px;">{{ vd.role }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:9px;justify-content:center;margin-top:34px;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+          <button onClick="{{ d.go }}" aria-label="Ir para depoimento" style="height:10px;width:{{ d.w }};border-radius:100px;border:none;background:{{ d.bg }};cursor:pointer;transition:all .3s;padding:0;"></button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg);">
+    <div style="max-width:840px;margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="display:flex;align-items:center;gap:11px;justify-content:center;">
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+          <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">FAQ</span>
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+        </div>
+        <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;margin:16px 0 0;">Perguntas Frequentes</h2>
+      </div>
+      <div style="margin-top:44px;display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="background:var(--surf);border:1px solid var(--bd);border-radius:16px;overflow:hidden;">
+            <button onClick="{{ f.toggle }}" style="width:100%;text-align:left;background:none;border:none;color:var(--tx);font-family:var(--body);font-weight:600;font-size:17px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;">
+              <span>{{ f.q }}</span>
+              <span style="flex-shrink:0;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:400;color:var(--red);transition:transform .25s;transform:{{ f.chev }};">+</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ true }}">
+              <p style="color:var(--mut);font-size:15px;line-height:1.7;margin:0;padding:0 24px 24px;">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" style="padding:clamp(64px,8vw,110px) clamp(20px,5vw,48px);background:var(--bg2);border-top:1px solid var(--bd);">
+    <div style="max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:start;">
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;">
+          <span style="height:2px;width:32px;background:var(--g);"></span>
+          <span style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);">Fale Conosco</span>
+        </div>
+        <h2 style="font-family:var(--disp);font-weight:700;font-size:clamp(30px,3.8vw,48px);letter-spacing:-.02em;margin:16px 0 0;">Pronto para transformar seu espaço?</h2>
+        <p style="color:var(--mut);font-size:17px;line-height:1.6;margin:18px 0 0;">Fale com um consultor Tokyo Machine e receba uma proposta personalizada com simulação de ROI gratuitamente.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:32px;">
+          <a href="https://wa.me/5511976852638" target="_blank" style="display:flex;align-items:center;gap:14px;">
+            <span style="width:46px;height:46px;border-radius:12px;background:rgba(37,211,102,.14);border:1px solid rgba(37,211,102,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="images/whatsapp.svg" alt="WhatsApp" style="width:26px;height:26px;display:block;" /></span>
+            <span><span style="display:block;font-size:12px;color:var(--mut2);text-transform:uppercase;letter-spacing:.06em;">WhatsApp</span><span style="font-weight:600;font-size:16px;color:#3ddc84;">(11) 97685-2638</span></span>
+          </a>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="width:46px;height:46px;border-radius:12px;background:var(--surf);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--red);font-size:18px;">@</span>
+            <span><span style="display:block;font-size:12px;color:var(--mut2);text-transform:uppercase;letter-spacing:.06em;">E-mail</span><span style="font-weight:600;font-size:16px;">contato@tokyomachine.com.br</span></span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <span style="width:46px;height:46px;border-radius:12px;background:var(--surf);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--red);font-size:20px;">◉</span>
+            <span><span style="display:block;font-size:12px;color:var(--mut2);text-transform:uppercase;letter-spacing:.06em;">Endereço</span><span style="font-weight:600;font-size:15.5px;line-height:1.5;display:block;">R. Profa. Anésia Sincorá, 250 — Lauzane Paulista<br>São Paulo/SP · CEP 02443-100</span></span>
+          </div>
+        </div>
+        <div style="margin-top:26px;padding:20px 22px;background:var(--surf);border:1px solid var(--bd);border-radius:16px;">
+          <div style="font-size:12px;color:var(--mut2);text-transform:uppercase;letter-spacing:.08em;font-weight:700;">Horário de Atendimento</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:12px;font-size:14.5px;color:var(--mut);">
+            <span>Seg a Qui: <strong style="color:var(--tx);">08h às 18h</strong></span>
+            <span>Sex: <strong style="color:var(--tx);">08h às 17h</strong></span>
+            <span>Almoço: <strong style="color:var(--tx);">12h às 13h</strong></span>
+          </div>
+          <div style="font-size:13px;color:var(--mut2);margin-top:10px;">Não abrimos aos finais de semana · CNPJ 47.931.272/0001-79</div>
+        </div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--bd);border-radius:24px;padding:clamp(24px,3vw,38px);">
+        <h3 style="font-family:var(--disp);font-weight:600;font-size:22px;margin:0;">Solicitar Proposta Gratuita</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:24px;">
+          <div>
+            <label style="display:block;font-size:13px;color:var(--mut);margin-bottom:7px;">Nome completo</label>
+            <input value="{{ nome }}" onChange="{{ onNome }}" placeholder="Seu nome" style="width:100%;background:var(--bg);border:1px solid var(--bd2);border-radius:11px;padding:13px 15px;color:var(--tx);font-size:15px;outline:none;" />
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;color:var(--mut);margin-bottom:7px;">WhatsApp</label>
+            <input value="{{ zap }}" onChange="{{ onZap }}" placeholder="(00) 00000-0000" style="width:100%;background:var(--bg);border:1px solid var(--bd2);border-radius:11px;padding:13px 15px;color:var(--tx);font-size:15px;outline:none;" />
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;color:var(--mut);margin-bottom:7px;">Tipo de Estabelecimento</label>
+            <select value="{{ tipo }}" onChange="{{ onTipo }}" style="width:100%;background:var(--bg);border:1px solid var(--bd2);border-radius:11px;padding:13px 15px;color:var(--tx);font-size:15px;outline:none;">
+              <option value="">Selecione...</option>
+              <option value="Shopping / Centro Comercial">Shopping / Centro Comercial</option>
+              <option value="Academia / Fitness">Academia / Fitness</option>
+              <option value="Restaurante / Lanchonete">Restaurante / Lanchonete</option>
+              <option value="Hotel / Pousada">Hotel / Pousada</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;color:var(--mut);margin-bottom:7px;">Cidade / Estado</label>
+            <input value="{{ cidade }}" onChange="{{ onCidade }}" placeholder="Cidade / UF" style="width:100%;background:var(--bg);border:1px solid var(--bd2);border-radius:11px;padding:13px 15px;color:var(--tx);font-size:15px;outline:none;" />
+          </div>
+          <div>
+            <label style="display:block;font-size:13px;color:var(--mut);margin-bottom:7px;">Mensagem (opcional)</label>
+            <textarea value="{{ msg }}" onChange="{{ onMsg }}" rows="3" placeholder="Conte um pouco sobre seu espaço" style="width:100%;background:var(--bg);border:1px solid var(--bd2);border-radius:11px;padding:13px 15px;color:var(--tx);font-size:15px;outline:none;resize:vertical;"></textarea>
+          </div>
+          <button onClick="{{ enviar }}" style="background:var(--red);color:#fff;font-weight:700;font-size:16px;padding:15px;border:none;border-radius:12px;cursor:pointer;box-shadow:0 10px 28px rgba(255,46,76,.32);transition:transform .2s;" style-hover="transform:translateY(-2px)">Enviar no WhatsApp →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--bg);border-top:1px solid var(--bd);padding:clamp(48px,6vw,76px) clamp(20px,5vw,48px) 32px;">
+    <div style="max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;">
+      <div>
+        <img src="images/logo-cut.png" alt="Tokyo Machine" style="height:66px;width:auto;display:block;" />
+        <p style="color:var(--mut);font-size:14.5px;line-height:1.6;max-width:320px;margin:18px 0 0;">A maior rede de máquinas de entretenimento e premiação do Brasil. Transformando espaços em experiências.</p>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--tx);">Produtos</div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px;font-size:14.5px;color:var(--mut);">
+          <a href="#catalogo" style="transition:color .2s;" style-hover="color:var(--tx)">Máquinas de Garra</a>
+          <a href="#catalogo" style="transition:color .2s;" style-hover="color:var(--tx)">Vending Machines</a>
+          <a href="#catalogo" style="transition:color .2s;" style-hover="color:var(--tx)">Premiação</a>
+          <a href="#catalogo" style="transition:color .2s;" style-hover="color:var(--tx)">Carrossel de Prêmios</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--tx);">Empresa</div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px;font-size:14.5px;color:var(--mut);">
+          <a href="#sobre" style="transition:color .2s;" style-hover="color:var(--tx)">Sobre Nós</a>
+          <a href="#como-funciona" style="transition:color .2s;" style-hover="color:var(--tx)">Como Funciona</a>
+          <a href="#resultados" style="transition:color .2s;" style-hover="color:var(--tx)">Resultados</a>
+          <a href="#depoimentos" style="transition:color .2s;" style-hover="color:var(--tx)">Depoimentos</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--tx);">Suporte</div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px;font-size:14.5px;color:var(--mut);">
+          <a href="#faq" style="transition:color .2s;" style-hover="color:var(--tx)">FAQ</a>
+          <a href="#contato" style="transition:color .2s;" style-hover="color:var(--tx)">Contato</a>
+          <a href="https://wa.me/5511976852638" target="_blank" style="transition:color .2s;" style-hover="color:var(--tx)">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:var(--maxw);margin:36px auto 0;padding-top:24px;border-top:1px solid var(--bd);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;color:var(--mut2);">
+      <span>© 2026 Tokyo Machine. Todos os direitos reservados.</span>
+      <span>CNPJ 47.931.272/0001-79 · São Paulo, SP</span>
+    </div>
+  </footer>
+
+  <!-- MODAL DETALHE -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:100;background:rgba(5,5,7,0.82);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:clamp(14px,3vw,40px);">
+      <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:1000px;max-height:92vh;overflow-y:auto;background:var(--surf);border:1px solid var(--bd2);border-radius:24px;padding:clamp(22px,3vw,40px);">
+        <button onClick="{{ closeModal }}" aria-label="Fechar" style="position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:50%;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font-size:18px;cursor:pointer;z-index:3;">✕</button>
+        <div style="display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(22px,3vw,44px);align-items:start;">
+          <div style="position:relative;border-radius:18px;background:radial-gradient(circle at 50% 40%,rgba(123,92,255,0.18),transparent 66%);display:flex;align-items:center;justify-content:center;padding:24px;min-height:340px;">
+            <img src="{{ sel.img }}" alt="{{ sel.name }}" style="max-width:100%;max-height:440px;object-fit:contain;filter:drop-shadow(0 18px 34px rgba(0,0,0,0.6));" />
+            <span style="position:absolute;bottom:14px;left:16px;font-family:monospace;font-size:11px;color:var(--mut);background:rgba(0,0,0,0.4);border:1px solid var(--bd);padding:4px 9px;border-radius:6px;">{{ sel.model }}</span>
+          </div>
+          <div>
+            <div style="font-weight:700;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:#ff7088;">Série Tokyo</div>
+            <h3 style="font-family:var(--disp);font-weight:700;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.02em;margin:8px 0 0;">{{ sel.name }}</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-top:22px;">
+              <div style="background:var(--bg);padding:13px 15px;"><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Dimensões</div><div style="font-size:14px;font-weight:600;margin-top:4px;">{{ sel.dim }}</div></div>
+              <div style="background:var(--bg);padding:13px 15px;"><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Voltagem</div><div style="font-size:14px;font-weight:600;margin-top:4px;">110V / 220V</div></div>
+              <div style="background:var(--bg);padding:13px 15px;"><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Potência</div><div style="font-size:14px;font-weight:600;margin-top:4px;">200W</div></div>
+              <div style="background:var(--bg);padding:13px 15px;"><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Peso</div><div style="font-size:14px;font-weight:600;margin-top:4px;">{{ sel.peso }}</div></div>
+              <div style="background:var(--bg);padding:13px 15px;grid-column:span 2;"><div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut2);">Cores</div><div style="font-size:14px;font-weight:600;margin-top:4px;">{{ sel.cores }}</div></div>
+            </div>
+            <p style="font-size:15px;line-height:1.65;color:var(--mut);margin:20px 0 0;text-wrap:pretty;">{{ sel.desc }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
+              <sc-for list="{{ sel.prices }}" as="pr" hint-placeholder-count="2">
+                <div style="background:var(--bg);border:1px solid var(--bd);border-radius:13px;padding:13px 22px;">
+                  <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ff7088;">{{ pr.label }}</div>
+                  <div style="font-family:var(--disp);font-weight:700;font-size:23px;margin-top:3px;">{{ pr.value }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <a href="{{ sel.wa }}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:11px;margin-top:24px;background:#25d366;color:#0a2e16;font-weight:700;font-size:16px;padding:15px;border-radius:13px;box-shadow:0 10px 28px rgba(37,211,102,0.34);transition:transform .2s;" style-hover="transform:translateY(-2px)">
+              <span style="width:26px;height:26px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="images/whatsapp.svg" alt="" style="width:19px;height:19px;display:block;" /></span>
+              Falar com um consultor
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5511976852638" target="_blank" aria-label="Falar no WhatsApp" style="position:fixed;right:22px;bottom:22px;z-index:80;display:flex;align-items:center;gap:11px;background:#25d366;color:#0a2e16;font-weight:700;font-size:15px;padding:14px 20px 14px 16px;border-radius:100px;box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .2s;" style-hover="transform:translateY(-3px)">
+    <span style="width:26px;height:26px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="images/whatsapp.svg" alt="" style="width:19px;height:19px;display:block;" /></span>
+    Fale no WhatsApp
+  </a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { faqOpen: 0, v: 0, modalIndex: -1, nome:'', zap:'', tipo:'', cidade:'', msg:'' };
+  componentDidMount() {
+    setTimeout(() => {
+      document.querySelectorAll('[data-vidwrap]').forEach((wrap) => {
+        const v = wrap.querySelector('video');
+        const ov = wrap.querySelector('[data-playov]');
+        if (!v || !ov || wrap._wired) return;
+        wrap._wired = true;
+        const sync = () => { ov.style.opacity = v.paused ? '1' : '0'; };
+        v.addEventListener('play', sync);
+        v.addEventListener('pause', sync);
+        v.addEventListener('ended', () => { try { v.currentTime = 0; } catch (e) {} sync(); });
+        sync();
+      });
+    }, 0);
+  }
+  renderVals() {
+    const W = '5511976852638';
+    const enc = (s) => encodeURIComponent(s);
+
+    const scroll = [
+      { src:'images/scroll/london.png',          name:'LONDON',     tag:'Máquina de Garra' },
+      { src:'images/scroll/prize-wheel.png',     name:'PRIZE WHEEL',tag:'Carrossel de Prêmios' },
+      { src:'images/scroll/blaaze.png',          name:'BLAAZE',     tag:'Toy Tycoon' },
+      { src:'images/scroll/funhouse-plush.png',  name:'FUNHOUSE',   tag:'Pelúcias Premium' },
+      { src:'images/scroll/tokyo-mini.png',      name:'TOKYO MINI', tag:'Compacta' },
+      { src:'images/scroll/insert-coin.png',     name:'INSERT COIN',tag:'Estilo Arcade' },
+      { src:'images/scroll/vending-tcn.png',     name:'VENDING',    tag:'Snacks & Bebidas' },
+    ];
+
+    const P = [
+      { name:'NEW BLACK', model:'TM-1001', dim:'L80×A225×P92', peso:'150 kg', cores:'Preto',
+        desc:'Máquina campeã de vendas da Tokyo Machine. Possui design moderno, delicadeza e elegância para o seu estabelecimento. Feita em chaparia de aço, pintura eletrostática e vidro. Leds com diversas cores alternando através de um controle ou app.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 9.490,00'},{label:'Com 1 noteiro',value:'R$ 8.990,00'}] },
+      { name:'NEW LED', model:'TM-1002', dim:'L78×A215×P74', peso:'110 kg', cores:'Branco / Preto',
+        desc:'Máquina campeã de vendas da Tokyo Machine. Possui design moderno, delicadeza e elegância para o seu estabelecimento.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 9.990,00'}] },
+      { name:'NEW LED Branca', model:'TM-1003', dim:'L78×A215×P74', peso:'110 kg', cores:'Branco',
+        desc:'Máquina campeã de vendas da Tokyo Machine. Possui design moderno, delicadeza e elegância para o seu estabelecimento.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 9.990,00'}] },
+      { name:'TOY MIX LED', model:'TM-1004', dim:'L115×A220×P122', peso:'150 kg', cores:'Branco / Preto',
+        desc:'Toy Mix LED. Máquina importada com qualidade que ninguém tem. Garanta já a sua!',
+        prices:[{label:'Com 1 noteiro',value:'R$ 9.490,00'}] },
+      { name:'LONDON', model:'TM-1005', dim:'L83×A190×P76', peso:'100 kg', cores:'Preto',
+        desc:'Transforme qualquer espaço com a sofisticação e o charme da nossa máquina de pelúcia LONDON. Suas cores criam uma experiência única e memorável para todos.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 6.490,00'},{label:'Com 1 noteiro',value:'R$ 5.990,00'}] },
+      { name:'TOY MIX', model:'TM-1006', dim:'L63×A183×P68', peso:'100 kg', cores:'Preto',
+        desc:'Transforme qualquer espaço com a sofisticação e o charme da nossa Toy Mix. Sua iluminação em LED cria uma experiência única e memorável para todos.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 9.490,00'}] },
+      { name:'TOY MIX MINI', model:'TM-1007', dim:'L63×A183×P68', peso:'70 kg', cores:'Preto',
+        desc:'Transforme qualquer espaço com a sofisticação e o charme da nossa Toy Mix Mini. Sua iluminação em LED cria uma experiência única e memorável para todos.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 8.990,00'},{label:'Sem noteiro',value:'R$ 8.490,00'}] },
+      { name:'TOY MIX MINI Branca', model:'TM-1008', dim:'L63×A183×P68', peso:'70 kg', cores:'Branco',
+        desc:'Transforme qualquer espaço com a sofisticação e o charme da nossa Toy Mix Mini. Sua iluminação em LED cria uma experiência única e memorável para todos.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 8.990,00'},{label:'Sem noteiro',value:'R$ 8.490,00'}] },
+      { name:'BIG LED', model:'TM-1009', dim:'L115×A220×P122', peso:'190 kg', cores:'Branco / Preto',
+        desc:'A BIG LED é uma das máquinas comerciais mais chamativas do portfólio. Com seus 2 metros e 30 cm, sua imponência nunca passa despercebida.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 16.990,00'},{label:'Com 1 noteiro',value:'R$ 16.590,00'}] },
+      { name:'BIG BLACK', model:'TM-1010', dim:'L115×A220×P122', peso:'190 kg', cores:'Branco / Preto',
+        desc:'A Big Black é uma das máquinas comerciais mais chamativas do portfólio. Com seus 2 metros e 20 cm, sua imponência nunca passa despercebida.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 15.990,00'},{label:'Com 1 noteiro',value:'R$ 15.490,00'}] },
+      { name:'SKILL LED', model:'TM-1011', dim:'L78×A215×P74', peso:'110 kg', cores:'Branco / Preto',
+        desc:'Máquina campeã de vendas da Tokyo Machine. Possui design moderno, delicadeza e elegância para o seu estabelecimento. Leds com diversas cores alternando através de um controle.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 14.490,00'}] },
+      { name:'BLACK QUADRADA', model:'TM-1012', dim:'L85×A196×P95', peso:'150 kg', cores:'Branco / Preto',
+        desc:'Design moderno, delicadeza e elegância para o seu estabelecimento. Feita em chaparia de aço e vidro.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 11.490,00'},{label:'Com 1 noteiro',value:'R$ 10.990,00'}] },
+      { name:'PLUSH MASTER', model:'TM-1013', dim:'L81×A186×P92', peso:'140 kg', cores:'Branco / Preto',
+        desc:'Desenvolvida para ambientes comerciais de alta performance, a PLUSH MASTER combina engenharia robusta, iluminação LED premium e design minimalista, aumentando a taxa de jogadas e o retorno sobre investimento.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 11.490,00'},{label:'Com 1 noteiro',value:'R$ 10.990,00'}] },
+      { name:'OFF WHITE', model:'TM-1014', dim:'L80×A225×P92', peso:'150 kg', cores:'Branco / Preto',
+        desc:'Design moderno, delicadeza e elegância para o seu estabelecimento. Feita em chaparia de aço e vidro.',
+        prices:[{label:'Com 2 noteiros',value:'R$ 11.490,00'},{label:'Com 1 noteiro',value:'R$ 10.990,00'}] },
+      { name:'SKILL CUT', model:'TM-1015', dim:'L80×A227×P75', peso:'140 kg', cores:'Preta ou Branca',
+        desc:'Máquina campeã de vendas da Tokyo Machine. Possui design moderno, delicadeza e elegância para o seu estabelecimento. Leds com diversas cores alternando através de um controle.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 10.990,00'},{label:'Sem noteiro',value:'R$ 10.490,00'}] },
+      { name:'MÁQUINA DE SOCO', model:'TM-1016', dim:'L100×A215×P125', peso:'170 kg', cores:'Preto',
+        desc:'Teste sua força na máquina que chama atenção e gera lucro! Resistente, com LED e vibração a cada golpe, ela transforma diversão em faturamento. Perfeita para atrair público e aumentar suas vendas.',
+        prices:[{label:'Sem noteiro',value:'R$ 35.990,00'}] },
+      { name:'BUBBLE MIX', model:'TM-1017', dim:'L80×A227×P75', peso:'30 kg', cores:'Preto',
+        desc:'Chegou a Bubble Mix da Tokyo Machine! A máquina de prêmios em cápsulas feita para quem quer giro rápido, baixo custo e lucro constante. Trabalha com cápsulas esféricas de até 100 ml, dando total liberdade para montar prêmios que vendem de verdade.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 7.890,00'}] },
+      { name:'PRIZE WHEEL', model:'TM-1018', dim:'L80×A227×P75', peso:'30 kg', cores:'Preto',
+        desc:'Transforme diversão em lucro com a Prize Wheel 60 Grampos! Com visual moderno, iluminação LED de destaque e sistema com 60 grampos para prêmios, ela cria uma experiência envolvente que atrai clientes e aumenta o movimento do seu ponto.',
+        prices:[{label:'Com 1 noteiro',value:'R$ 13.990,00'}] },
+    ];
+    const products = P.map((p, i) => ({
+      ...p,
+      img: 'images/produto-' + String(i + 1).padStart(2, '0') + '.png',
+      wa: 'https://wa.me/' + W + '?text=' + enc('Olá! Tenho interesse na máquina ' + p.name + ' (' + p.model + '). Gostaria de falar com um consultor.'),
+      open: () => this.setState({ modalIndex: i }),
+    }));
+
+    const faqRaw = [
+      { q:'Qual o retorno sobre investimento (ROI) esperado?',
+        a:'O retorno varia conforme o fluxo do local e o modelo escolhido, com média de 6 a 9 meses para recuperar o investimento. Oferecemos simulação de ROI gratuita antes de qualquer compromisso.' },
+      { q:'Quem faz a manutenção das máquinas?',
+        a:'A Tokyo Machine conta com uma equipe técnica especializada para prestar suporte remoto por videochamada, orientando o cliente passo a passo na identificação e solução de possíveis problemas da máquina. Além de resolver a ocorrência de forma rápida e eficiente, o cliente adquire conhecimento prático sobre o funcionamento do equipamento, tornando-se mais preparado para lidar com situações futuras e reduzindo a necessidade de assistência técnica presencial. Dessa forma, garantimos mais autonomia, agilidade e economia para a sua operação.' },
+      { q:'Vocês possuem máquinas para diferentes espaços?',
+        a:'Sim. A Tokyo Machine oferece máquinas em diversos tamanhos e modelos, permitindo que você encontre a opção ideal para o seu espaço e objetivo de negócio. Nossa equipe especializada está preparada para analisar o local de instalação e indicar a máquina mais adequada, considerando fatores como área disponível, fluxo de pessoas e potencial de faturamento. Conte com a experiência dos nossos especialistas para fazer a melhor escolha e maximizar os resultados da sua operação.' },
+      { q:'Os produtos são fornecidos pela Tokyo Machine?',
+        a:'Sim, oferecemos uma linha completa de produtos para abastecimento das máquinas e compartilhamos toda a nossa experiência para ajudar nossos clientes a obterem os melhores resultados. No entanto, não exigimos exclusividade: você tem total liberdade para adquirir seus produtos de qualquer fornecedor de sua preferência. Nossa recomendação é baseada em anos de experiência no mercado, conhecendo quais produtos possuem maior aceitação e melhor desempenho em vendas. Além disso, prezamos pela transparência em todas as negociações. Enquanto muitas imagens encontradas na internet podem não representar a qualidade real dos produtos, na Tokyo Machine apresentamos fotos reais, vídeos e realizamos videochamadas para que você conheça exatamente o que está adquirindo. Nosso objetivo é oferecer segurança, confiança e suporte para que sua operação tenha o máximo de rentabilidade.' },
+      { q:'Vocês atendem todo o Brasil?',
+        a:'Sim! A Tokyo Machine atende clientes em praticamente todo o território nacional, oferecendo suporte completo desde o primeiro contato até o pós-venda. Nosso atendimento é realizado de forma rápida e transparente por WhatsApp, ligações e videochamadas, permitindo que você conheça nossos produtos, tire dúvidas e receba todo o suporte necessário, independentemente da sua localização. Ao longo da nossa trajetória, já realizamos negócios com clientes em diversas regiões do Brasil, ajudando empreendedores a iniciarem e expandirem suas operações com segurança, confiança e acompanhamento especializado.' },
+    ];
+    const faqs = faqRaw.map((f, i) => ({
+      q: f.q, a: f.a,
+      open: i === this.state.faqOpen,
+      chev: i === this.state.faqOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+      toggle: () => this.setState((s) => ({ faqOpen: s.faqOpen === i ? -1 : i })),
+    }));
+
+    const vids = [
+      { name:'Marcos Propaganda', role:'Cliente Tokyo Machine', type:'video', src:'videos/marcos.mp4' },
+      { name:'Elder',             role:'Cliente Tokyo Machine', type:'video', src:'videos/elder.mp4' },
+      { name:'Arthur',            role:'Cliente Tokyo Machine', type:'video', src:'videos/arthur.mp4' },
+      { name:'Rafael Rodrigues',  role:'Cliente Tokyo Machine', type:'audio', src:'videos/rafael.wav' },
+    ];
+    const videos = vids.map((vd, i) => ({ ...vd, num: '0' + (i + 1), isVideo: vd.type === 'video', isAudio: vd.type === 'audio' }));
+
+    const vmax = Math.max(0, videos.length - 3);
+    const v = Math.min(this.state.v, vmax);
+    const vTransform = 'translateX(' + (-v * 308) + 'px)';
+    const dots = Array.from({ length: vmax + 1 }, (_, i) => ({
+      active: i === v,
+      bg: i === v ? '#ff2e4c' : 'rgba(255,255,255,0.22)',
+      w: i === v ? '28px' : '10px',
+      go: () => this.setState({ v: i }),
+    }));
+    const vPrev = () => this.setState((s) => ({ v: Math.max(0, s.v - 1) }));
+    const vNext = () => this.setState((s) => ({ v: Math.min(vmax, s.v + 1) }));
+
+    const f = (k) => (e) => this.setState({ [k]: e.target.value });
+    const enviar = () => {
+      const t = 'Olá! Quero uma proposta da Tokyo Machine.\n\nNome: ' + this.state.nome +
+        '\nWhatsApp: ' + this.state.zap + '\nEstabelecimento: ' + this.state.tipo +
+        '\nCidade/UF: ' + this.state.cidade + '\nMensagem: ' + this.state.msg;
+      window.open('https://wa.me/' + W + '?text=' + enc(t), '_blank');
+    };
+
+    const modalIndex = this.state.modalIndex;
+    const sel = modalIndex >= 0 ? products[modalIndex] : null;
+    const modalOpen = !!sel;
+    const closeModal = () => this.setState({ modalIndex: -1 });
+    const stop = (e) => e.stopPropagation();
+    const playVid = (e) => {
+      const ov = e.currentTarget;
+      const wrap = ov.closest('[data-vidwrap]');
+      const v = wrap && wrap.querySelector('video');
+      if (!v) return;
+      if (v.paused) { v.play(); } else { v.pause(); }
+      ov.style.opacity = v.paused ? '1' : '0';
+    };
+
+    return {
+      scroll, scroll2: scroll, products, faqs, videos,
+      sel, modalOpen, closeModal, stop, playVid,
+      vTransform, dots, vPrev, vNext,
+      nome: this.state.nome, zap: this.state.zap, tipo: this.state.tipo, cidade: this.state.cidade, msg: this.state.msg,
+      onNome: f('nome'), onZap: f('zap'), onTipo: f('tipo'), onCidade: f('cidade'), onMsg: f('msg'),
+      enviar,
+    };
+  }
+}
+</script>
+</body>
+</html>
